@@ -6,8 +6,8 @@ Using this code, you can retrieve SSL certificates that have been blacklisted fo
 from __future__ import print_function
 
 import requests
-import re
 import sys
+import json
 
 from bs4 import BeautifulSoup
 
@@ -86,7 +86,7 @@ class SSLBlackList(object):
 
         soup = BeautifulSoup(req.content, 'html.parser')
         table = soup.findAll('table', attrs={'class': 'sortable'})[0]
-        return self.extract_ssl_certificates(table)
+        return json.dumps(self.extract_ssl_certificates(table))
 
     def search(self, sha1_fingerprint):
         url = "https://sslbl.abuse.ch/intel/{}".format(sha1_fingerprint)
@@ -101,4 +101,4 @@ class SSLBlackList(object):
             return {}
 
         soup = BeautifulSoup(req.content, 'html.parser')
-        return self.extract_info_fingerprint(soup)
+        return json.dumps(self.extract_info_fingerprint(soup))
