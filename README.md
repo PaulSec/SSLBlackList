@@ -47,7 +47,7 @@ adea6a58f21107', 'listing_reason': u'Gootkit C&C', 'listing_date': u'2016-12-07 
 ```
 
 What's returned is a list of elements such as this one: 
-```json
+```
 {
     'common_name': u 'Utoc0athav.ibm',
     'sha1': u '92423f824a666d95b12e63a56efde3ccc1ae7fc7',
@@ -64,7 +64,7 @@ $ python API_example.py
 ```
 
 What's returned is this exact structure: 
-```json
+```
 {
     'ssl_certificate': {
         'status': u 'Blacklisted (Reason: Vawtrak C&C, Listing date: 2016-11-21 09:08:05)',
